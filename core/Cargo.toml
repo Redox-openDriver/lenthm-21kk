@@ -1,0 +1,14 @@
+[package]
+name = "lenthm-core"
+version = "0.1.0"
+description = "Тепло Lenovo ThinkBook 16 G6 ABP (21KK) без привязки к ОС: датчики, пороги и вентилятор в окне памяти контроллера, дневник охлаждения"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+publish = false
+
+[features]
+diary = []
+
+[dependencies]
+calor = { git = "https://github.com/Redox-openDriver/calor", tag = "v0.1.0" }

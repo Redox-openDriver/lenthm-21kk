@@ -1,0 +1,35 @@
+dev-usage = lenthm-dev — the laptop's heat from the kernel's sensors (no root needed)
+    status          every sensor, the processor's power, the fan and how the cooling holds up
+    watch [minutes] the processor's temperature and power every 2 seconds (5 minutes; up to 1440)
+dev-error = error: { $detail }
+dev-bad-option = unknown option: { $value }
+dev-bad-minutes = “{ $value }” is not a number of minutes from 1 to 1440
+dev-no-sensors = no temperature sensors in /sys/class/hwmon or /sys/class/thermal
+dev-sensor = { $place } ({ $sensor }): { $celsius } °C
+dev-sensor-critical = { $place } ({ $sensor }): { $celsius } °C, critical { $critical } °C
+dev-power = the processor draws { $watts } W
+dev-fan-on = the fan is running
+dev-fan-off = the fan is still
+dev-fan-unknown = the fan does not say whether it runs
+dev-cooling-learning = cooling health: still learning ({ $samples } steady moments so far; two weeks of use are needed)
+dev-cooling-same = cooling health: as at the start ({ $percent }% compared with the first two weeks)
+dev-cooling-worse = cooling health: { $percent }% worse than in the first two weeks — the fan or the heat sink may need cleaning
+dev-watch-line = processor { $celsius } °C ({ $slope } °/min), { $watts } W; the hottest: { $hottest } { $top } °C
+dev-watch-sample = steady load: the processor runs { $rise } °C above the rest of the laptop (power band { $bucket })
+dev-place-processor = processor
+dev-place-graphics = graphics
+dev-place-board = board
+dev-place-storage = storage
+dev-place-wireless = wireless
+dev-place-battery = battery
+dev-place-other = other
+thermal-started = watching the laptop's heat; the cooling diary: { $file }
+thermal-stopped = the service stopped
+thermal-diary-failed = could not write { $file }: { $detail }
+thermal-hot = { $sensor } has been hot for a while: { $celsius } °C
+thermal-cooled = { $sensor } has cooled down: { $celsius } °C
+thermal-near-critical = { $sensor } is at { $celsius } °C, close to its critical { $critical } °C — the laptop may switch itself off
+thermal-cooling-worse = the cooling is { $percent }% worse than in the first two weeks at the same load — the fan or the heat sink may need cleaning
+redox-error = error: { $detail }
+redox-map-failed = could not map the controller window { $address }: { $detail }
+redox-started = watching the laptop's heat in the controller window { $address } (read only)

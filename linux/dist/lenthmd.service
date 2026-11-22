@@ -1,0 +1,11 @@
+[Unit]
+Description=lenthm: the laptop's heat and cooling health
+
+[Service]
+ExecStart=%h/.local/bin/lenthmd
+Restart=on-failure
+RestartSec=10
+Nice=10
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=lenthm
+Exec=@BIN@/lenthmd
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

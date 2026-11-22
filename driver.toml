@@ -1,0 +1,80 @@
+schema = 3
+
+[driver]
+id = "lenthm-21kk"
+family = "lenthm"
+name = "lenthm"
+category = "sensors"
+status = "alpha"
+version = "0.1.0"
+license = "AGPL-3.0-or-later"
+repository = "https://github.com/Redox-openDriver/lenthm-21kk"
+keywords = ["temperature", "thermal", "sensors", "cooling", "fan", "overheating", "ACPI", "Lenovo", "ThinkBook", "Redox"]
+default_language = "ru"
+
+[tags]
+vendor = ["lenovo"]
+class = ["sensors", "thermal"]
+device = ["acpi:PNP0C0B", "hwmon:k10temp", "hwmon:amdgpu"]
+bus = ["acpi", "ec"]
+os = ["linux", "redox"]
+arch = ["x86_64"]
+libc = ["glibc"]
+init = ["systemd-user", "xdg-autostart"]
+integration = ["hwmon", "thermal"]
+laptop = ["lenovo-thinkbook-16-g6-abp-21kk"]
+language = ["ru", "en"]
+
+[text.ru]
+title = "Открытый драйвер температуры со здоровьем охлаждения"
+summary = "Тепло ThinkBook 16 G6 ABP для Redox и Linux: предупреждения без паники и здоровье охлаждения по неделям."
+description = """
+lenthm — мост от датчиков температуры к библиотеке calor.
+На Linux показания берутся у ядра без root, служба работает от имени пользователя и ничего не переключает.
+Для Redox есть свой демон: датчики читаются прямо из окна памяти контроллера; он собран, но в Redox ещё не запускался.
+"""
+disclaimer = "Независимый открытый проект. Не связан с Lenovo; название указано только для обозначения совместимого ноутбука."
+features = [
+  "здоровье охлаждения: насколько процессор теплее остального ноутбука при той же мощности, неделя к неделе",
+  "предупреждение о перегреве, только если он держится",
+  "предупреждение у критической температуры датчика",
+  "служба от имени пользователя, без root",
+]
+
+[text.en]
+title = "Open temperature driver with cooling health"
+summary = "ThinkBook 16 G6 ABP heat on Redox and Linux: calm warnings and cooling health week by week."
+description = """
+lenthm bridges the temperature sensors to the calor library.
+On Linux the readings come from the kernel without root, the service runs as the user and switches nothing.
+For Redox there is a daemon of its own that reads the sensors straight from the controller's memory window; it builds but has not run on Redox yet.
+"""
+disclaimer = "An independent open project. Not affiliated with Lenovo; the name only identifies the compatible laptop."
+features = [
+  "cooling health: how much warmer the processor runs than the rest of the laptop at the same power, week by week",
+  "a heat warning only when the heat lasts",
+  "a warning near a sensor's critical temperature",
+  "a user service, no root",
+]
+
+[[device]]
+bus = "acpi"
+vendor = "Lenovo"
+model = "ThinkBook 16 G6 ABP (21KK)"
+kind = "EC thermal sensors, ACPI thermal zones TZS0 and TZS1, fan PNP0C0B"
+laptops = ["Lenovo ThinkBook 16 G6 ABP (21KK)"]
+
+[platform.linux]
+status = "alpha"
+components = ["lenthmd", "lenthm-dev"]
+requirements = ["hwmon (k10temp, amdgpu, nvme) and ACPI thermal zones"]
+
+[platform.redox]
+status = "research"
+components = ["lenthmd"]
+requirements = ["physmap of the EC window"]
+
+[links]
+readme = "README.md"
+library = "https://github.com/Redox-openDriver/calor"
+messages = "https://github.com/Redox-openDriver/drv-i18n"

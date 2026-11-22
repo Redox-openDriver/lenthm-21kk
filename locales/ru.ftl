@@ -1,0 +1,35 @@
+dev-usage = lenthm-dev — тепло ноутбука по датчикам ядра (root не нужен)
+    status          все датчики, мощность процессора, вентилятор и как держится охлаждение
+    watch [минуты]  температура и мощность процессора каждые 2 секунды (5 минут; до 1440)
+dev-error = ошибка: { $detail }
+dev-bad-option = неизвестный параметр: { $value }
+dev-bad-minutes = «{ $value }» — не число минут от 1 до 1440
+dev-no-sensors = нет датчиков температуры ни в /sys/class/hwmon, ни в /sys/class/thermal
+dev-sensor = { $place } ({ $sensor }): { $celsius } °C
+dev-sensor-critical = { $place } ({ $sensor }): { $celsius } °C, критическая { $critical } °C
+dev-power = процессор потребляет { $watts } Вт
+dev-fan-on = вентилятор работает
+dev-fan-off = вентилятор стоит
+dev-fan-unknown = вентилятор не сообщает, работает ли он
+dev-cooling-learning = здоровье охлаждения: ещё учусь (пока { $samples } моментов ровной нагрузки; нужны две недели работы)
+dev-cooling-same = здоровье охлаждения: как в начале ({ $percent }% по сравнению с первыми двумя неделями)
+dev-cooling-worse = здоровье охлаждения: на { $percent }% хуже, чем в первые две недели — возможно, пора почистить вентилятор и радиатор
+dev-watch-line = процессор { $celsius } °C ({ $slope } °/мин), { $watts } Вт; горячее всех: { $hottest } { $top } °C
+dev-watch-sample = ровная нагрузка: процессор на { $rise } °C теплее остального ноутбука (полоса мощности { $bucket })
+dev-place-processor = процессор
+dev-place-graphics = графика
+dev-place-board = плата
+dev-place-storage = накопитель
+dev-place-wireless = беспроводная сеть
+dev-place-battery = батарея
+dev-place-other = другое
+thermal-started = слежу за теплом ноутбука; дневник охлаждения: { $file }
+thermal-stopped = служба остановлена
+thermal-diary-failed = не удалось записать { $file }: { $detail }
+thermal-hot = { $sensor } горячий уже какое-то время: { $celsius } °C
+thermal-cooled = { $sensor } остыл: { $celsius } °C
+thermal-near-critical = { $sensor }: { $celsius } °C, близко к критическим { $critical } °C — ноутбук может выключиться сам
+thermal-cooling-worse = охлаждение на { $percent }% хуже, чем в первые две недели при той же нагрузке — возможно, пора почистить вентилятор и радиатор
+redox-error = ошибка: { $detail }
+redox-map-failed = не удалось отобразить окно контроллера { $address }: { $detail }
+redox-started = слежу за теплом ноутбука в окне контроллера { $address } (только чтение)

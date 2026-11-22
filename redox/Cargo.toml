@@ -1,0 +1,22 @@
+[package]
+name = "lenthm-redox"
+version = "0.1.0"
+description = "Тепло Lenovo ThinkBook 16 G6 ABP (21KK) в Redox OS: датчики и вентилятор из окна памяти контроллера, только чтение"
+edition = "2024"
+license = "AGPL-3.0-or-later"
+repository = "https://github.com/Redox-openDriver/lenthm-21kk"
+publish = false
+
+[workspace]
+
+[dependencies]
+lenthm-core = { path = "../core" }
+calor = { git = "https://github.com/Redox-openDriver/calor", tag = "v0.1.0" }
+drv-i18n = { git = "https://github.com/Redox-openDriver/drv-i18n", tag = "v0.1.1" }
+libredox = "0.2"
+redox_syscall = { version = "0.9.5", features = ["std"] }
+common = { git = "https://gitlab.redox-os.org/redox-os/base.git", rev = "8f576d27ee5d028157b001e320affc7b1ec2736b" }
+
+[[bin]]
+name = "lenthmd"
+path = "src/bin/lenthmd.rs"
